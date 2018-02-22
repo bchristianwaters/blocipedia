@@ -36,6 +36,8 @@
  
  gem 'thor', '0.20.0'
  
+ gem 'devise'
+ 
  group :development do
    gem 'listen', '~> 3.0.5'
  end
