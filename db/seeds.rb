@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+    Wiki.create!(
+    title: "Test"
+    body: "testing 123 blah blah",
+    private: false,
+    user: User.first
+    )
