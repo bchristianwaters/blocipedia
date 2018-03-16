@@ -5,9 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-    Wiki.create!(
-    title: "Test"
-    body: "testing 123 blah blah",
-    private: false,
-    user: User.first
-    )
+
+    require 'faker'
+    
+    5.times do
+        User.create!(
+        email: Faker::Internet.unique.email,    
+        password: Faker::Internet.password(6, 12)
+        )
+    end
+    
+    5.times do
+        Wiki.create!(
+            title: Faker::Lorem.word,
+            body: Faker::Lorem.sentence,
+            private: Faker::Boolean.boolean,
+            user: User.first
+        )
+    end
