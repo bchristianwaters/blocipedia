@@ -15,23 +15,23 @@ class ApplicationPolicy
   end
 
   def create?
-    true
+    false
   end
 
   def new?
-    true
+    false
   end
 
   def update?
-    true
+    false
   end
 
   def edit?
-    true
+    false
   end
 
   def destroy?
-    true
+    false
   end
 
   def scope
