@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  resources :charges, only: [:new, :create]
+
   devise_for :users
   
   resources :wikis
@@ -6,6 +9,10 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   get 'welcome/about'
+  
+  get 'charges/cancel', :as => :cancel_charge
+  
+  post 'charges/downgrade', :as => :downgrade_charge
   
   root 'welcome#index'
 
