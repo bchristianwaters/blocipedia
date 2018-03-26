@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   resources :wikis
 
-  get 'welcome/index'
+  get 'welcome/index', :as => :home
 
   get 'welcome/about'
   

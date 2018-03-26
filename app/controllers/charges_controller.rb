@@ -15,7 +15,6 @@ class ChargesController < ApplicationController
      currency: 'usd'
    )
  
-   flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
    current_user.premium! if current_user.standard?
    redirect_to cancel_charge_path
 
@@ -36,7 +35,6 @@ class ChargesController < ApplicationController
   end
   
   def downgrade
-    current_user.standard! if current_user.premium?  
   end
   
 end

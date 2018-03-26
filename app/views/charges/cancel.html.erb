@@ -1,5 +1,5 @@
- <%= form_tag charges_path do %>
+<div class="container">
  <% if current_user.premium? %>
-   <%= button_to "Downgrade to Standard", '#', :onclick => current_user.standard! %>
+   <%= link_to "Downgrade to Standard", wikis_path, :onclick => downgrade(current_user), :data => {confirm: 'Are you sure you want to delete this post? If you do then your private wikis will become public.'}  %>
  <% end %>
- <% end %>
+</div>

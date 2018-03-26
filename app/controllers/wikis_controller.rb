@@ -1,7 +1,7 @@
  class WikisController < ApplicationController
    
    def index
-     @wikis = Wiki.all
+     @wikis = policy_scope(Wiki)
    end
     
    def show
@@ -18,6 +18,7 @@
       @wiki = Wiki.new(wiki_params)
       authorize @wiki
       @wiki.user = current_user
+      @wiki.private = false if current_user.standard?
 
      if @wiki.save
        redirect_to @wiki
@@ -35,6 +36,7 @@
      @wiki = Wiki.find(params[:id])
      authorize @wiki
      @wiki.assign_attributes(wiki_params)
+     @wiki.private = false if current_user.standard?
  
      if @wiki.save
        redirect_to @wiki
