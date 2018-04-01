@@ -1,4 +1,5 @@
 <div class = "container">
     <h1>Edit Wiki</h1>
-    <%= render partial: 'form', locals: { wiki: @wiki } %>
+    <%= @users %>
+    <%= render partial: 'form', locals: { wiki: @wiki, users: @users } %>
 </div>

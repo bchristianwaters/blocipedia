@@ -16,7 +16,7 @@ class ChargesController < ApplicationController
    )
  
    current_user.premium! if current_user.standard?
-   redirect_to cancel_charge_path
+   redirect_to wikis_path
 
    # Stripe will send back CardErrors, with friendly messages
    # when something goes wrong.
@@ -34,7 +34,9 @@ class ChargesController < ApplicationController
    }
   end
   
-  def downgrade
+  def cancel
+     current_user.downgrade
+     redirect_to wikis_path
   end
   
 end

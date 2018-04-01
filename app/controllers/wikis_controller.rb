@@ -11,6 +11,7 @@
     
    def new
      @wiki = Wiki.new
+     @users = User.all
      authorize @wiki
    end
     
@@ -19,6 +20,7 @@
       authorize @wiki
       @wiki.user = current_user
       @wiki.private = false if current_user.standard?
+      @users = User.all
 
      if @wiki.save
        redirect_to @wiki
@@ -29,6 +31,7 @@
    
    def edit
      @wiki = Wiki.find(params[:id])
+     @users = User.all
      authorize @wiki
    end
   
@@ -36,8 +39,8 @@
      @wiki = Wiki.find(params[:id])
      authorize @wiki
      @wiki.assign_attributes(wiki_params)
-     @wiki.private = false if current_user.standard?
- 
+     @users = User.all
+
      if @wiki.save
        redirect_to @wiki
      else

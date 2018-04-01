@@ -1,11 +1,18 @@
+<div class="container">
  <% if policy(@wiki).show? %>
- <h1><%= @wiki.title %></h1>
- <p><%= markdown(@wiki.body).html_safe %></p>
- <p>Created by <%= @wiki.user.email %> </p>
- <% if policy(@wiki).update? %>
-   <%= link_to "Edit Wiki", edit_wiki_path, class: 'btn btn-success' %>
+   <h1><%= @wiki.title %></h1>
+   <p><%= markdown(@wiki.body).html_safe %></p>
+   <p>Created by <%= @wiki.user.email %> </p>
+   <% if @wiki.private %>
+     <h4>Collaborators</h4>
+     <%= render @wiki.collaborators %>
+     <%= render 'collaborators/form', collaborator: Collaborator.new, wiki: @wiki %>
+   <% end %>
+   <% if policy(@wiki).update? %>
+     <%= link_to "Edit Wiki", edit_wiki_path, class: 'btn btn-success' %>
+   <% end %>
+   <% if policy(@wiki).destroy? %>
+     <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this wiki?' } %>
+   <% end %>
  <% end %>
- <% if policy(@wiki).destroy? %>
-   <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this wiki?' } %>
- <% end %>
- <% end %>
+</div>

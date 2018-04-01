@@ -1,0 +1,8 @@
+ <%= content_tag :div, class: 'media', id: "collaborator-#{collaborator.id}" do %>
+    <div class="media-body">
+        <small>
+            <%= link_to "Delete", collaborator, class: 'btn btn-danger', method: :delete %>
+            <%= collaborator.user.email %> is a collaborator
+        </small>
+    </div>
+ <% end %>

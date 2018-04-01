@@ -1,0 +1,8 @@
+ <h4>Add a collaborator</h4>
+ <%= form_for [wiki, collaborator] do |f| %>
+   <div class="form-group">
+     <%= f.label :user_id, class: 'sr-only' %>
+     <%= f.text_field :user_id, class: 'form-control' %>
+   </div>
+   <%= f.submit "Submit", class: 'btn btn-default pull-right' %>
+ <% end %>
