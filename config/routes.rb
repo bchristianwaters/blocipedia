@@ -2,12 +2,14 @@ Rails.application.routes.draw do
   
   resources :charges, only: [:new, :create]
 
-  resources :collaborators, only: [:create, :destroy]
+  resources :collaborators, only: [:destroy]
+  
+  post 'collaborators/create', :as => :create_collaborator
 
   devise_for :users
   
   resources :wikis do
-    resources :collaborators, only: [:create, :destroy]  
+    resources :collaborators, only: [:create]  
   end
 
   get 'welcome/index', :as => :home

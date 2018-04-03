@@ -12,12 +12,6 @@
       <%= f.label :private %>
       <%= f.check_box :private, class: 'form-control'%>
     </div>
-    <div class="form-group">
-    <% users.each do |user| %>
-      <%= f.label :collaborators, user.email %>
-      <%= f.check_box :collaborators, class: 'form-control' %>
-    <% end %>
-    </div>
   <% end %>
     <div class="form-group">
       <%= f.submit "Save", class: 'btn btn-success' %>

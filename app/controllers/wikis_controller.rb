@@ -31,7 +31,6 @@
    
    def edit
      @wiki = Wiki.find(params[:id])
-     @users = User.all
      authorize @wiki
    end
   
@@ -39,7 +38,6 @@
      @wiki = Wiki.find(params[:id])
      authorize @wiki
      @wiki.assign_attributes(wiki_params)
-     @users = User.all
 
      if @wiki.save
        redirect_to @wiki
