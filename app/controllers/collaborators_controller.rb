@@ -1,7 +1,12 @@
 class CollaboratorsController < ApplicationController
     def create
         wiki = Wiki.find(params[:wiki_id])
-        collaborator = wiki.collaborators.new(collaborator_params)
+        if collaborator_params[:user_id].include?("@")
+            user_id = User.find_by(email: collaborator_params[:user_id]).id
+            collaborator = wiki.collaborators.new(:user_id => user_id)
+        else
+            collaborator = wiki.collaborators.new(collaborator_params)
+        end
         
         if collaborator.save
             redirect_to wiki

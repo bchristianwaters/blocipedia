@@ -1,24 +1,16 @@
-# README
+This is an online encyclopedia app.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Start by forking, pulling down, or cloning this app.
 
-Things you may want to cover:
+In order for blocipedia to run successfully, you need a Stripe account. You can create one at www.stripe.com.
 
-* Ruby version
+After creating a Stripe account, you need to set the STRIPE_PUBLISHABLE_KEY and 
+STRIPE_SECRET_KEY variables inside the config/application.yml file.
 
-* System dependencies
+Then you can run the application and it should like the following:
 
-* Configuration
+![Wiki Edit](/lib/assets/blocipedia-wiki-edit.png?raw=true "Wiki Edit")
 
-* Database creation
+![Upgrade](/lib/assets/blocipedia-upgrade.png?raw=true "Upgrade")
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Wiki Show](/lib/assets/blocipedia-show.png?raw=true "Wiki Show")
